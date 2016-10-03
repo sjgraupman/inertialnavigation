@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>403848172613-nkhum0uq5s8b2q92n1jeq5p9s2a2krvl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.403848172613-nkhum0uq5s8b2q92n1jeq5p9s2a2krvl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCeBq1BBhl8OjKBYPksHP_SsFlTeZ_iVfY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>403848172613</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.koz.Inertial-Navigation</string>
+	<key>PROJECT_ID</key>
+	<string>inertial-navigation</string>
+	<key>STORAGE_BUCKET</key>
+	<string>inertial-navigation.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:403848172613:ios:b6a54346f2b2a115</string>
+	<key>DATABASE_URL</key>
+	<string>https://inertial-navigation.firebaseio.com</string>
+</dict>
+</plist>
