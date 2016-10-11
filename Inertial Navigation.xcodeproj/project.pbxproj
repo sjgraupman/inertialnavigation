@@ -16,7 +16,10 @@
 		17435C691DA2D36000AD27A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17435C681DA2D36000AD27A4 /* GoogleService-Info.plist */; };
 		17435C701DA2E72F00AD27A4 /* UploadedMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C6F1DA2E72F00AD27A4 /* UploadedMapsViewController.m */; };
 		17435C9A1DA2F7C300AD27A4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17435C991DA2F7C300AD27A4 /* MapKit.framework */; };
-		17435C9C1DA2F91C00AD27A4 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C9B1DA2F91C00AD27A4 /* SignInViewController.m */; };
+		1799AFCE1DA9718D00F8B5E3 /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1799AFCD1DA9718D00F8B5E3 /* AppState.m */; };
+		1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */ = {isa = PBXBuildFile; fileRef = 1799AFD01DAB2E8600F8B5E3 /* Measurements.m */; };
+		1799AFD51DAB2FB000F8B5E3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1799AFD41DAB2FB000F8B5E3 /* Constants.m */; };
+		17EFBC1F1DA6C3860067689B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC1E1DA6C3860067689B /* SignInViewController.m */; };
 		567FEBC3CFA3FFB2273F8F88 /* libPods-Inertial Navigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594B3471D8A2CBB6EBBC4147 /* libPods-Inertial Navigation.a */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +38,14 @@
 		17435C6F1DA2E72F00AD27A4 /* UploadedMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadedMapsViewController.m; sourceTree = "<group>"; };
 		17435C711DA2E76600AD27A4 /* UploadedMapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadedMapsViewController.h; sourceTree = "<group>"; };
 		17435C991DA2F7C300AD27A4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		17435C9B1DA2F91C00AD27A4 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
-		17435C9D1DA2F92F00AD27A4 /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		1799AFCD1DA9718D00F8B5E3 /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
+		1799AFCF1DA9719C00F8B5E3 /* AppState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
+		1799AFD01DAB2E8600F8B5E3 /* Measurements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurements.m; sourceTree = "<group>"; };
+		1799AFD21DAB2E9500F8B5E3 /* Measurements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Measurements.h; sourceTree = "<group>"; };
+		1799AFD31DAB2FA200F8B5E3 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1799AFD41DAB2FB000F8B5E3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		17EFBC1E1DA6C3860067689B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInViewController.m; path = ../SignInViewController.m; sourceTree = "<group>"; };
+		17EFBC201DA6C3B30067689B /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		594B3471D8A2CBB6EBBC4147 /* libPods-Inertial Navigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Inertial Navigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFF8608DF9C0C459DA3F33C /* Pods-Inertial Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inertial Navigation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Inertial Navigation/Pods-Inertial Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 		BC78DBCA0590B919B98CD0ED /* Pods-Inertial Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inertial Navigation.release.xcconfig"; path = "Pods/Target Support Files/Pods-Inertial Navigation/Pods-Inertial Navigation.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,8 +90,14 @@
 				17435C571DA2D0CF00AD27A4 /* MapViewController.h */,
 				17435C581DA2D0CF00AD27A4 /* MapViewController.m */,
 				17435C5A1DA2D0CF00AD27A4 /* Main.storyboard */,
-				17435C9D1DA2F92F00AD27A4 /* SignInViewController.h */,
-				17435C9B1DA2F91C00AD27A4 /* SignInViewController.m */,
+				1799AFCF1DA9719C00F8B5E3 /* AppState.h */,
+				1799AFCD1DA9718D00F8B5E3 /* AppState.m */,
+				17EFBC201DA6C3B30067689B /* SignInViewController.h */,
+				17EFBC1E1DA6C3860067689B /* SignInViewController.m */,
+				1799AFD01DAB2E8600F8B5E3 /* Measurements.m */,
+				1799AFD21DAB2E9500F8B5E3 /* Measurements.h */,
+				1799AFD31DAB2FA200F8B5E3 /* Constants.h */,
+				1799AFD41DAB2FB000F8B5E3 /* Constants.m */,
 				17435C711DA2E76600AD27A4 /* UploadedMapsViewController.h */,
 				17435C6F1DA2E72F00AD27A4 /* UploadedMapsViewController.m */,
 				17435C5D1DA2D0CF00AD27A4 /* Assets.xcassets */,
@@ -149,7 +164,7 @@
 		17435C461DA2D0CE00AD27A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = koz;
 				TargetAttributes = {
 					17435C4D1DA2D0CF00AD27A4 = {
@@ -242,9 +257,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17435C9C1DA2F91C00AD27A4 /* SignInViewController.m in Sources */,
+				17EFBC1F1DA6C3860067689B /* SignInViewController.m in Sources */,
+				1799AFCE1DA9718D00F8B5E3 /* AppState.m in Sources */,
 				17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */,
+				1799AFD51DAB2FB000F8B5E3 /* Constants.m in Sources */,
 				17435C701DA2E72F00AD27A4 /* UploadedMapsViewController.m in Sources */,
+				1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */,
 				17435C561DA2D0CF00AD27A4 /* AppDelegate.m in Sources */,
 				17435C531DA2D0CF00AD27A4 /* main.m in Sources */,
 			);
@@ -286,8 +304,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -331,8 +351,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

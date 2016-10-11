@@ -8,12 +8,19 @@
 
 #import "UploadedMapsViewController.h"
 
-@interface UploadedMapsViewController ()
+@interface UploadedMapsViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation UploadedMapsViewController
 
+//UITableView *tableView = [[UITableView alloc] init];
+
+//tableView.delegate = self;
+//tableView.dataSource = self;
+//[_mapsTable UITableViewCell.self forCellReuseIdentifier:@"mapsCell" ];
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
@@ -23,5 +30,14 @@
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return 4;
+}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  //UITableViewCell *cell = [mapsTable dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+ // return cell;
+//}
 
 @end
