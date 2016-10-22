@@ -92,23 +92,27 @@
   FIRUser *user = [FIRAuth auth].currentUser;
   UIAlertController *deleteAccount = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure you want to delete your account? All data will be erased" preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [deleteAccount dismissViewControllerAnimated:YES completion:^{
-      [self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-    }];
-    
-  }];
-  UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    [deleteAccount dismissViewControllerAnimated:YES completion:nil];
-  }];
-  [deleteAccount addAction:ok];
-  [deleteAccount addAction:cancel];
-  [self presentViewController:deleteAccount animated:YES completion:nil];
-  [user deleteWithCompletion:^(NSError *_Nullable error) {
-    if (error) {
-      // An error happened.
-    } else {
+      [user deleteWithCompletion:^(NSError *_Nullable error) {
+        if (error) {
+          // An error happened.
+        } else {
+          //account deleted
+          [self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
         }
+    }];
   }];
+      
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+      [deleteAccount dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [deleteAccount addAction:ok];
+    [deleteAccount addAction:cancel];
+    [self presentViewController:deleteAccount animated:YES completion:nil];
+
+  
+//  dispatch_async(dispatch_get_main_queue(), ^{
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+//  });
   //[self.navigationController popToRootViewControllerAnimated:YES];
  //[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
 }
