@@ -15,21 +15,41 @@
                         <viewControllerLayoutGuide type="bottom" id="GQ2-mz-qXC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Li3-QX-uJo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-kJ-iv5">
-                                <frame key="frameInset" minY="64" width="375" height="559"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-kJ-iv5"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCe-VN-qNw">
+                                <items>
+                                    <barButtonItem image="GPS" id="f6Y-9h-6jv"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fQZ-ms-tNx"/>
+                                    <barButtonItem title="Start Tracking" width="192" id="1ng-1H-6vJ"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="x3g-8U-EQI"/>
+                                    <barButtonItem image="Settings" id="Jma-gy-jo1">
+                                        <connections>
+                                            <segue destination="D6V-1u-59K" kind="show" id="WRE-Bq-eji"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HmP-kJ-iv5" secondAttribute="trailing" id="E6N-gH-L0G"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="trailing" secondItem="HmP-kJ-iv5" secondAttribute="trailing" id="O8G-T6-9WY"/>
+                            <constraint firstItem="HmP-kJ-iv5" firstAttribute="top" secondItem="WJi-Xm-ftw" secondAttribute="bottom" id="Ofb-c0-u8X"/>
+                            <constraint firstItem="HmP-kJ-iv5" firstAttribute="leading" secondItem="Li3-QX-uJo" secondAttribute="leading" id="Tql-gK-jc7"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="leading" secondItem="HmP-kJ-iv5" secondAttribute="leading" id="ail-D0-bVC"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="top" secondItem="HmP-kJ-iv5" secondAttribute="bottom" id="t4h-EO-tfh"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="bottom" secondItem="GQ2-mz-qXC" secondAttribute="top" id="yb7-4r-Pvw"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Map" id="KAg-W0-if0">
                         <barButtonItem key="rightBarButtonItem" image="plus" id="XVj-MT-M1C">
                             <connections>
-                                <segue destination="M6f-uJ-wGs" kind="show" id="QBX-ns-HkB"/>
+                                <segue destination="M6f-uJ-wGs" kind="show" id="CWN-Yw-zEU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -40,7 +60,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14h-yJ-6ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339.5" y="244.5"/>
+            <point key="canvasLocation" x="338.39999999999998" y="244.22788605697153"/>
+        </scene>
+        <!--Account Settings-->
+        <scene sceneID="1Wp-0W-p0V">
+            <objects>
+                <viewController id="D6V-1u-59K" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DoC-yH-giK"/>
+                        <viewControllerLayoutGuide type="bottom" id="HgE-t7-CsR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9qd-i4-4nR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddr-sF-Vhi">
+                                <frame key="frameInset" minY="11" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-en-0os">
+                                <frame key="frameInset" minX="163" minY="547" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="D6V-1u-59K" eventType="touchUpInside" id="f4H-a5-7hr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOc-jF-Sd9">
+                                <frame key="frameInset" minX="110" minY="170" width="154" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Email Address"/>
+                                <connections>
+                                    <action selector="didTapChangeEmail:" destination="D6V-1u-59K" eventType="touchUpInside" id="NGd-Ye-qsp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="say-8t-A5U">
+                                <frame key="frameInset" minX="132" minY="219" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset Password"/>
+                                <connections>
+                                    <action selector="didTapChangePassword:" destination="D6V-1u-59K" eventType="touchUpInside" id="RFg-nJ-bgI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Update Account Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dR-aZ-m7d">
+                                <frame key="frameInset" minX="61" minY="116" width="253" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cf8-X4-42D">
+                                <frame key="frameInset" minX="132" minY="282" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.85673828119999995" green="0.047603958100000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDeleteAccount:" destination="D6V-1u-59K" eventType="touchUpInside" id="gYB-Ce-nYQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Account Settings" id="ur7-tj-o6i"/>
+                    <connections>
+                        <segue destination="csU-lF-LCV" kind="show" identifier="LogoutSegue" id="c4q-pc-95S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUV-ML-oU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336.80000000000001" y="983.65817091454278"/>
         </scene>
         <!--Uploaded Maps-->
         <scene sceneID="sMT-w9-UgF">
@@ -63,7 +153,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6X-ot-2wh" id="zUo-1S-WsM">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -76,6 +166,9 @@
                     <navigationItem key="navigationItem" title="Uploaded Maps" id="pXl-rN-Vq2">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="XVE-z2-QJ6"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="iaR-a8-1jS" id="sDC-1c-i1G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykl-dp-yPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +203,7 @@
                                 <frame key="frameInset" minX="118" minY="268" width="139" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIk-Fg-456">
                                 <frame key="frameInset" minX="161" minY="328" width="52" height="30"/>
@@ -142,17 +235,19 @@
                     <connections>
                         <outlet property="emailField" destination="Q9b-Sc-reL" id="WV4-AW-VO3"/>
                         <outlet property="passwordField" destination="Lss-0K-4OU" id="xCm-xk-YbA"/>
+                        <segue destination="8Ic-eL-6VF" kind="show" identifier="SegueToMap" id="dhe-aK-hRd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sR-Fu-uEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1260" y="244"/>
+            <point key="canvasLocation" x="-1166" y="250"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yCn-zc-XCu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ic-eL-6VF" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GFz-yE-3wm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,6 +263,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="GPS" width="22" height="22"/>
+        <image name="Settings" width="22" height="21"/>
         <image name="plus" width="22" height="22"/>
     </resources>
 </document>

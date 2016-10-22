@@ -11,7 +11,7 @@
 @implementation Constants
 
 NSString *const NotificationKeysSignedIn = @"onSignInCompleted";
-NSString *const SeguesSignInToFp = @"SignInToFP";
-NSString *const SeguesFpToSignIn = @"FPToSignIn";
+NSString *const SegueToMap = @"SegueToMap";
+
 
 @end

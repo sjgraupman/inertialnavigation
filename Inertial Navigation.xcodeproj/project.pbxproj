@@ -13,12 +13,13 @@
 		17435C5C1DA2D0CF00AD27A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17435C5A1DA2D0CF00AD27A4 /* Main.storyboard */; };
 		17435C5E1DA2D0CF00AD27A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17435C5D1DA2D0CF00AD27A4 /* Assets.xcassets */; };
 		17435C611DA2D0CF00AD27A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17435C5F1DA2D0CF00AD27A4 /* LaunchScreen.storyboard */; };
-		17435C691DA2D36000AD27A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17435C681DA2D36000AD27A4 /* GoogleService-Info.plist */; };
 		17435C701DA2E72F00AD27A4 /* UploadedMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C6F1DA2E72F00AD27A4 /* UploadedMapsViewController.m */; };
 		17435C9A1DA2F7C300AD27A4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17435C991DA2F7C300AD27A4 /* MapKit.framework */; };
 		1799AFCE1DA9718D00F8B5E3 /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1799AFCD1DA9718D00F8B5E3 /* AppState.m */; };
 		1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */ = {isa = PBXBuildFile; fileRef = 1799AFD01DAB2E8600F8B5E3 /* Measurements.m */; };
 		1799AFD51DAB2FB000F8B5E3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1799AFD41DAB2FB000F8B5E3 /* Constants.m */; };
+		17CB78591DB0351100FEE21D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CB78581DB0351100FEE21D /* SettingsViewController.m */; };
+		17CB78601DBAE37B00FEE21D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17CB785F1DBAE37B00FEE21D /* GoogleService-Info.plist */; };
 		17EFBC1F1DA6C3860067689B /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EFBC1E1DA6C3860067689B /* SignInViewController.m */; };
 		567FEBC3CFA3FFB2273F8F88 /* libPods-Inertial Navigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594B3471D8A2CBB6EBBC4147 /* libPods-Inertial Navigation.a */; };
 /* End PBXBuildFile section */
@@ -34,7 +35,6 @@
 		17435C5D1DA2D0CF00AD27A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17435C601DA2D0CF00AD27A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17435C621DA2D0CF00AD27A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17435C681DA2D36000AD27A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17435C6F1DA2E72F00AD27A4 /* UploadedMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadedMapsViewController.m; sourceTree = "<group>"; };
 		17435C711DA2E76600AD27A4 /* UploadedMapsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadedMapsViewController.h; sourceTree = "<group>"; };
 		17435C991DA2F7C300AD27A4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -44,6 +44,9 @@
 		1799AFD21DAB2E9500F8B5E3 /* Measurements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Measurements.h; sourceTree = "<group>"; };
 		1799AFD31DAB2FA200F8B5E3 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1799AFD41DAB2FB000F8B5E3 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		17CB78581DB0351100FEE21D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		17CB785A1DB0352900FEE21D /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		17CB785F1DBAE37B00FEE21D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EFBC1E1DA6C3860067689B /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInViewController.m; path = ../SignInViewController.m; sourceTree = "<group>"; };
 		17EFBC201DA6C3B30067689B /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		594B3471D8A2CBB6EBBC4147 /* libPods-Inertial Navigation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Inertial Navigation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +92,8 @@
 				17435C551DA2D0CF00AD27A4 /* AppDelegate.m */,
 				17435C571DA2D0CF00AD27A4 /* MapViewController.h */,
 				17435C581DA2D0CF00AD27A4 /* MapViewController.m */,
+				17CB785A1DB0352900FEE21D /* SettingsViewController.h */,
+				17CB78581DB0351100FEE21D /* SettingsViewController.m */,
 				17435C5A1DA2D0CF00AD27A4 /* Main.storyboard */,
 				1799AFCF1DA9719C00F8B5E3 /* AppState.h */,
 				1799AFCD1DA9718D00F8B5E3 /* AppState.m */,
@@ -102,8 +107,8 @@
 				17435C6F1DA2E72F00AD27A4 /* UploadedMapsViewController.m */,
 				17435C5D1DA2D0CF00AD27A4 /* Assets.xcassets */,
 				17435C5F1DA2D0CF00AD27A4 /* LaunchScreen.storyboard */,
+				17CB785F1DBAE37B00FEE21D /* GoogleService-Info.plist */,
 				17435C621DA2D0CF00AD27A4 /* Info.plist */,
-				17435C681DA2D36000AD27A4 /* GoogleService-Info.plist */,
 				17435C511DA2D0CF00AD27A4 /* Supporting Files */,
 			);
 			path = "Inertial Navigation";
@@ -196,7 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17435C611DA2D0CF00AD27A4 /* LaunchScreen.storyboard in Resources */,
-				17435C691DA2D36000AD27A4 /* GoogleService-Info.plist in Resources */,
+				17CB78601DBAE37B00FEE21D /* GoogleService-Info.plist in Resources */,
 				17435C5E1DA2D0CF00AD27A4 /* Assets.xcassets in Resources */,
 				17435C5C1DA2D0CF00AD27A4 /* Main.storyboard in Resources */,
 			);
@@ -260,6 +265,7 @@
 				17EFBC1F1DA6C3860067689B /* SignInViewController.m in Sources */,
 				1799AFCE1DA9718D00F8B5E3 /* AppState.m in Sources */,
 				17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */,
+				17CB78591DB0351100FEE21D /* SettingsViewController.m in Sources */,
 				1799AFD51DAB2FB000F8B5E3 /* Constants.m in Sources */,
 				17435C701DA2E72F00AD27A4 /* UploadedMapsViewController.m in Sources */,
 				1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */,
