@@ -11,7 +11,8 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
-
+@property (nonatomic, weak) NSString *email;
+@property (nonatomic, weak) NSString *password;
 
 @end
 
@@ -39,24 +40,79 @@
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   }];
   UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    [changeEmail dismissViewControllerAnimated:YES completion:nil];
+    [user updateEmail:changeEmail.textFields.firstObject.text completion:^(NSError *_Nullable error) {
+      if (error) {
+        // An error happened.
+        NSLog(@"Couldn't update email");
+        UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error" message:@"Could not update email, please try again" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+          // [error dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [error addAction:ok];
+        [self presentViewController:error animated:YES completion:nil];
+      } else {
+        UIAlertController *emailUpdated = [UIAlertController alertControllerWithTitle:@"Email updated" message:@"Please sign in again with new email address" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+          NSError *signOutError;
+          BOOL status = [[FIRAuth auth] signOut:&signOutError];
+          if (!status) {
+            NSLog(@"Error signing out: %@", signOutError);
+            return;
+          }
+          UIAlertController *credentials = [UIAlertController alertControllerWithTitle:@"Sign In" message:nil preferredStyle:UIAlertControllerStyleAlert];
+          [credentials addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull emailField) {
+            emailField.placeholder = @"Email";
+            emailField.clearButtonMode = UITextFieldViewModeWhileEditing;
+              _email = emailField.text;
+          }];
+          [credentials addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull passwordField) {
+            passwordField.placeholder = @"Password";
+            passwordField.clearButtonMode = UITextFieldViewModeWhileEditing;
+              _password = passwordField.text;
+          }];
+
+          UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            FIRUser *user = [FIRAuth auth].currentUser;
+            FIRAuthCredential *credential;
+            //credential = FIREmailPasswordAuthProvider.credentialWithEmail(_email, password: _password)
+            //+ (FIRAuthCredential *)credentialWithEmail:(NSString *)email password:(NSString *)password;
+            // Prompt the user to re-provide their sign-in credentials
+            [user reauthenticateWithCredential:credential completion:^(NSError *_Nullable error) {
+              if (error) {
+                // An error happened.
+              } else {
+                // User re-authenticated.
+              }
+            }];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+          }];
+          [credentials addAction:ok];
+          [self presentViewController:credentials animated:YES completion:nil];
+                  //[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
+          
+        }];
+        [emailUpdated addAction:ok];
+        [self presentViewController:emailUpdated animated:YES completion:nil];
+        // Email updated.
+      }
+    }];
   }];
   [changeEmail addAction:ok];
   [self presentViewController:changeEmail animated:YES completion:nil];
-  [user updateEmail:changeEmail.textFields.firstObject.text completion:^(NSError *_Nullable error) {
-    if (error) {
-      // An error happened.
-      NSLog(@"Couldn't update email");
-      UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error" message:@"Could not update email, please try again" preferredStyle:UIAlertControllerStyleAlert];
-      UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [error dismissViewControllerAnimated:YES completion:nil];
-      }];
-      [error addAction:ok];
-      [self presentViewController:error animated:YES completion:nil];
-    } else {
-      // Email updated.
-    }
-  }];
+  
+
+ // FIRAuthCredential *credential;
+  
+  // Prompt the user to re-provide their sign-in credentials
+  
+ // [user reauthenticateWithCredential:credential completion:^(NSError *_Nullable error) {
+    //if (error) {
+     // // An error happened.
+   // } else {
+    //  // User re-authenticated.
+  //  }
+ // }];
 }
 
 - (IBAction)didTapChangePassword:(id)sender {

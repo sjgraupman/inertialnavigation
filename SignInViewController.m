@@ -64,10 +64,7 @@
                            NSLog(@"%@", error.localizedDescription);
                            return;
                          }
-                        // [self signedIn:user];
-//                         if (emailVerified == true) {
-//                           
-//                         }
+
                          if ([FIRAuth auth].currentUser.emailVerified) {
                            [self signedIn:user];
                             [self performSegueWithIdentifier:@"SegueToMap" sender:nil];
@@ -96,7 +93,7 @@
                              }
                              [self setDisplayName:user];
                              
-                             UIAlertController *accountCreated = [UIAlertController alertControllerWithTitle:@"Account Created" message:@"Your account was successfully created. Please check your email and verify with the provided link" preferredStyle:UIAlertControllerStyleAlert];
+                             UIAlertController *accountCreated = [UIAlertController alertControllerWithTitle:@"Account Created" message:@"Your account was successfully created. Please check your email and verify with the provided link." preferredStyle:UIAlertControllerStyleAlert];
                              
                              UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                                [accountCreated dismissViewControllerAnimated:YES completion:nil];
