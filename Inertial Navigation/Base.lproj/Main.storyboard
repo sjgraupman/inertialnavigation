@@ -18,7 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-kJ-iv5"/>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCe-VN-qNw">
                                 <items>
                                     <barButtonItem image="GPS" id="f6Y-9h-6jv"/>
@@ -32,15 +31,18 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-fw-vZk" customClass="GMSMapView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HmP-kJ-iv5" secondAttribute="trailing" id="E6N-gH-L0G"/>
-                            <constraint firstItem="bCe-VN-qNw" firstAttribute="trailing" secondItem="HmP-kJ-iv5" secondAttribute="trailing" id="O8G-T6-9WY"/>
-                            <constraint firstItem="HmP-kJ-iv5" firstAttribute="top" secondItem="WJi-Xm-ftw" secondAttribute="bottom" id="Ofb-c0-u8X"/>
-                            <constraint firstItem="HmP-kJ-iv5" firstAttribute="leading" secondItem="Li3-QX-uJo" secondAttribute="leading" id="Tql-gK-jc7"/>
-                            <constraint firstItem="bCe-VN-qNw" firstAttribute="leading" secondItem="HmP-kJ-iv5" secondAttribute="leading" id="ail-D0-bVC"/>
-                            <constraint firstItem="bCe-VN-qNw" firstAttribute="top" secondItem="HmP-kJ-iv5" secondAttribute="bottom" id="t4h-EO-tfh"/>
+                            <constraint firstAttribute="trailing" secondItem="fd3-fw-vZk" secondAttribute="trailing" id="8jB-uj-dtf"/>
+                            <constraint firstItem="fd3-fw-vZk" firstAttribute="leading" secondItem="Li3-QX-uJo" secondAttribute="leading" id="C8o-c1-1XA"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="top" secondItem="fd3-fw-vZk" secondAttribute="bottom" id="Do4-Sz-Frm"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="leading" secondItem="fd3-fw-vZk" secondAttribute="leading" id="TtM-O4-ESU"/>
+                            <constraint firstItem="bCe-VN-qNw" firstAttribute="trailing" secondItem="fd3-fw-vZk" secondAttribute="trailing" id="Zbf-Je-EXZ"/>
+                            <constraint firstItem="fd3-fw-vZk" firstAttribute="top" secondItem="WJi-Xm-ftw" secondAttribute="bottom" id="sTB-IK-z2v"/>
                             <constraint firstItem="bCe-VN-qNw" firstAttribute="bottom" secondItem="GQ2-mz-qXC" secondAttribute="top" id="yb7-4r-Pvw"/>
                         </constraints>
                     </view>
@@ -54,9 +56,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="mapView" destination="HmP-kJ-iv5" id="n0q-tX-3FP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14h-yJ-6ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +152,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6X-ot-2wh" id="zUo-1S-WsM">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
