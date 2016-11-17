@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iaR-a8-1jS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="515"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -176,8 +176,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPL-CD-llK">
+                                <rect key="frame" x="0.0" y="579" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="add button" id="hNP-yl-0na">
+                                        <connections>
+                                            <action selector="didSelectPlusButton:" destination="M6f-uJ-wGs" id="gFe-qm-gSZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xPL-CD-llK" secondAttribute="trailing" id="0Ew-Dm-bCT"/>
+                            <constraint firstItem="DTo-jo-CkY" firstAttribute="top" secondItem="xPL-CD-llK" secondAttribute="bottom" id="sTV-m3-NzF"/>
+                            <constraint firstItem="xPL-CD-llK" firstAttribute="leading" secondItem="Vcy-a6-3kC" secondAttribute="leading" id="vgs-VJ-cDb"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Uploaded Maps" id="pXl-rN-Vq2">
@@ -185,11 +200,55 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="iaR-a8-1jS" id="sDC-1c-i1G"/>
+                        <segue destination="Wnz-Sc-ejw" kind="show" identifier="clickedPlus" id="AOi-pp-jdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykl-dp-yPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058.5" y="244.5"/>
+            <point key="canvasLocation" x="1097" y="243"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="Tha-7m-jGC">
+            <objects>
+                <viewController id="Wnz-Sc-ejw" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JzS-dL-Hgy"/>
+                        <viewControllerLayoutGuide type="bottom" id="y0u-xW-tWd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cDu-x7-lb7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RcI-Dr-NgZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="480"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-5S-1rR">
+                                <rect key="frame" x="138" y="585" width="98" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="mXY-UL-A1q"/>
+                                </constraints>
+                                <state key="normal" title="Select Photo"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pIP-5S-1rR" firstAttribute="centerX" secondItem="cDu-x7-lb7" secondAttribute="centerX" id="9cg-V5-FRL"/>
+                            <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="41" id="DHc-uJ-UKR"/>
+                            <constraint firstAttribute="trailing" secondItem="RcI-Dr-NgZ" secondAttribute="trailing" id="K82-uh-5q0"/>
+                            <constraint firstItem="RcI-Dr-NgZ" firstAttribute="leading" secondItem="cDu-x7-lb7" secondAttribute="leading" id="NaR-nb-NYb"/>
+                            <constraint firstItem="RcI-Dr-NgZ" firstAttribute="centerX" secondItem="cDu-x7-lb7" secondAttribute="centerX" id="UZe-fc-GkE"/>
+                            <constraint firstItem="y0u-xW-tWd" firstAttribute="top" secondItem="pIP-5S-1rR" secondAttribute="bottom" constant="8" symbolic="YES" id="YXm-xd-z7Q"/>
+                            <constraint firstItem="RcI-Dr-NgZ" firstAttribute="top" secondItem="JzS-dL-Hgy" secondAttribute="bottom" id="evn-Gc-7gF"/>
+                            <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="41" id="sgV-jl-LEZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="RcI-Dr-NgZ" id="40d-A9-Djq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PfC-JM-eGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869.5999999999999" y="243.32833583208398"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="n0A-V8-4SP">
@@ -281,7 +340,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ic-eL-6VF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GFz-yE-3wm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GFz-yE-3wm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -298,6 +357,7 @@
     <resources>
         <image name="GPS" width="22" height="22"/>
         <image name="Settings" width="22" height="21"/>
+        <image name="add button" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>
     </resources>
 </document>

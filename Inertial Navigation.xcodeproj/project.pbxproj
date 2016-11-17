@@ -10,6 +10,8 @@
 		173E9CE81DD5889400DBE14E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9CE71DD5889400DBE14E /* CoreLocation.framework */; };
 		173E9D291DDA903000DBE14E /* pedometer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 173E9D281DDA903000DBE14E /* pedometer.mm */; };
 		173E9D2B1DDA904A00DBE14E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */; };
+		173E9D311DDE63C900DBE14E /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173E9D301DDE63C900DBE14E /* ImageViewController.m */; };
+		173E9D341DDE658A00DBE14E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9D331DDE658A00DBE14E /* MobileCoreServices.framework */; };
 		17435C531DA2D0CF00AD27A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C521DA2D0CF00AD27A4 /* main.m */; };
 		17435C561DA2D0CF00AD27A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C551DA2D0CF00AD27A4 /* AppDelegate.m */; };
 		17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C581DA2D0CF00AD27A4 /* MapViewController.m */; };
@@ -33,6 +35,9 @@
 		173E9D281DDA903000DBE14E /* pedometer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pedometer.mm; sourceTree = "<group>"; };
 		173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		173E9D2C1DDA909A00DBE14E /* PedoemeterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PedoemeterViewController.h; sourceTree = "<group>"; };
+		173E9D301DDE63C900DBE14E /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		173E9D321DDE63E500DBE14E /* ImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		173E9D331DDE658A00DBE14E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17435C4E1DA2D0CF00AD27A4 /* Inertial Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inertial Navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17435C521DA2D0CF00AD27A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17435C541DA2D0CF00AD27A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173E9D341DDE658A00DBE14E /* MobileCoreServices.framework in Frameworks */,
 				173E9D2B1DDA904A00DBE14E /* CoreMotion.framework in Frameworks */,
 				173E9CE81DD5889400DBE14E /* CoreLocation.framework in Frameworks */,
 				17435C9A1DA2F7C300AD27A4 /* MapKit.framework in Frameworks */,
@@ -106,6 +112,8 @@
 				17CB785A1DB0352900FEE21D /* SettingsViewController.h */,
 				17CB78581DB0351100FEE21D /* SettingsViewController.m */,
 				17435C5A1DA2D0CF00AD27A4 /* Main.storyboard */,
+				173E9D321DDE63E500DBE14E /* ImageViewController.h */,
+				173E9D301DDE63C900DBE14E /* ImageViewController.m */,
 				1799AFCF1DA9719C00F8B5E3 /* AppState.h */,
 				1799AFCD1DA9718D00F8B5E3 /* AppState.m */,
 				17EFBC201DA6C3B30067689B /* SignInViewController.h */,
@@ -138,6 +146,7 @@
 		C2492245BE9A2DE2F021688D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				173E9D331DDE658A00DBE14E /* MobileCoreServices.framework */,
 				173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */,
 				173E9CE71DD5889400DBE14E /* CoreLocation.framework */,
 				17435C991DA2F7C300AD27A4 /* MapKit.framework */,
@@ -282,6 +291,7 @@
 				1799AFCE1DA9718D00F8B5E3 /* AppState.m in Sources */,
 				17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */,
 				17CB78591DB0351100FEE21D /* SettingsViewController.m in Sources */,
+				173E9D311DDE63C900DBE14E /* ImageViewController.m in Sources */,
 				1799AFD51DAB2FB000F8B5E3 /* Constants.m in Sources */,
 				17435C701DA2E72F00AD27A4 /* UploadedMapsViewController.m in Sources */,
 				1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */,

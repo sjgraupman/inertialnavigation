@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UploadedMapsViewController : UIViewController
+@interface UploadedMapsViewController : UIViewController 
 
 
 @end

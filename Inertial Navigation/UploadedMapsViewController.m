@@ -40,4 +40,8 @@
  // return cell;
 //}
 
+-(IBAction)didSelectPlusButton:(id)sender {
+  [self performSegueWithIdentifier:@"clickedPlus" sender: self];
+}
+
 @end

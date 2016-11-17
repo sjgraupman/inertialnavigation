@@ -47,11 +47,13 @@
 //  marker.snippet = @"Wisconsin";
 //  marker.map = self.mapView;
   
-  
   self.mapView.delegate = self;
-  _locationManager.delegate = self;
-  [_locationManager requestWhenInUseAuthorization];
-  
+
+  //[_locationManager requestWhenInUseAuthorization];
+//  if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+//    [self.locationManager requestWhenInUseAuthorization];
+//  }
+//  [self.locationManager startUpdatingLocation];
 
   
   [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:NULL];
@@ -65,7 +67,7 @@
   
  }
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-  if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) {
+  if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways) {
     [_locationManager startUpdatingLocation];
     _mapView.myLocationEnabled = YES;
     _mapView.settings.myLocationButton = YES;
@@ -73,11 +75,13 @@
   
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations{
-  CLLocation *newLocation = [locations lastObject];
-  //_mapView.camera = GMSCameraPosition(target: newLocation.coordinate.latitude)
-}
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+//  CLLocation *newLocation = [locations lastObject];
+//  GMSCameraPosition *cameraPosition = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
+//                                                                  longitude:newLocation.coordinate.longitude
+//                                                                       zoom:11.0];
+//[self.mapView animateToCameraPosition:cameraPosition];
+//}
 
 
 -(IBAction)didTapStartTracking:(id)sender {
@@ -132,19 +136,38 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+  CLLocation *newLocation = [locations lastObject];
+  GMSCameraPosition *cameraPosition = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude
+                                                                  longitude:newLocation.coordinate.longitude
+                                                                       zoom:11.0];
+  [self.mapView animateToCameraPosition:cameraPosition];
+}
+
 - (IBAction)getCurrentLocation:(id)sender {
-  _locationManager.delegate = self;
-  _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+     _locationManager = [[CLLocationManager alloc] init];
+  });
+
+  _locationManager.delegate=self;
+  _locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+  _locationManager.distanceFilter=kCLDistanceFilterNone;
+  [_locationManager requestWhenInUseAuthorization];
+  [_locationManager startMonitoringSignificantLocationChanges];
   [_locationManager startUpdatingLocation];
-  CLLocation *location = [_mapView myLocation];
-  //...
-  NSLog(@"Location, %@,", location);
+
   
-  CLLocationCoordinate2D target =
-  CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
-  
-  [self.mapView animateToLocation:target];
-  [self.mapView animateToZoom:17];
+
+//  CLLocation *location = [_mapView myLocation];
+//  //...
+//  NSLog(@"Location, %@,", location);
+//  
+//  CLLocationCoordinate2D target =
+//  CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
+//  
+//  [self.mapView animateToLocation:target];
+//  [self.mapView animateToZoom:17];
   
   
 }
@@ -155,12 +178,6 @@
 
 }
 
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-  [_mapView animateToLocation:newLocation.coordinate];
-  
-}
 
 
 

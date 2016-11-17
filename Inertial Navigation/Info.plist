@@ -51,6 +51,14 @@
 		<string>comgooglemaps</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>asdf</string>
+	<string>Inertial Navigation wants to use your location</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Inertial Navigation wants to use your location</string>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string></string>
+	<key>NSMotionUsageDescription</key>
+	<string></string>
 </dict>
 </plist>
