@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173E9CE81DD5889400DBE14E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9CE71DD5889400DBE14E /* CoreLocation.framework */; };
+		173E9D291DDA903000DBE14E /* pedometer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 173E9D281DDA903000DBE14E /* pedometer.mm */; };
+		173E9D2B1DDA904A00DBE14E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */; };
 		17435C531DA2D0CF00AD27A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C521DA2D0CF00AD27A4 /* main.m */; };
 		17435C561DA2D0CF00AD27A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C551DA2D0CF00AD27A4 /* AppDelegate.m */; };
 		17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C581DA2D0CF00AD27A4 /* MapViewController.m */; };
@@ -25,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1721D0A21DC827B2003F1DF7 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Location.gpx; path = ../Location.gpx; sourceTree = "<group>"; };
+		173E9CE71DD5889400DBE14E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		173E9D281DDA903000DBE14E /* pedometer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pedometer.mm; sourceTree = "<group>"; };
+		173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		173E9D2C1DDA909A00DBE14E /* PedoemeterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PedoemeterViewController.h; sourceTree = "<group>"; };
 		17435C4E1DA2D0CF00AD27A4 /* Inertial Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inertial Navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17435C521DA2D0CF00AD27A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17435C541DA2D0CF00AD27A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173E9D2B1DDA904A00DBE14E /* CoreMotion.framework in Frameworks */,
+				173E9CE81DD5889400DBE14E /* CoreLocation.framework in Frameworks */,
 				17435C9A1DA2F7C300AD27A4 /* MapKit.framework in Frameworks */,
 				567FEBC3CFA3FFB2273F8F88 /* libPods-Inertial Navigation.a in Frameworks */,
 			);
@@ -88,6 +98,7 @@
 		17435C501DA2D0CF00AD27A4 /* Inertial Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				1721D0A21DC827B2003F1DF7 /* Location.gpx */,
 				17435C541DA2D0CF00AD27A4 /* AppDelegate.h */,
 				17435C551DA2D0CF00AD27A4 /* AppDelegate.m */,
 				17435C571DA2D0CF00AD27A4 /* MapViewController.h */,
@@ -99,6 +110,8 @@
 				1799AFCD1DA9718D00F8B5E3 /* AppState.m */,
 				17EFBC201DA6C3B30067689B /* SignInViewController.h */,
 				17EFBC1E1DA6C3860067689B /* SignInViewController.m */,
+				173E9D281DDA903000DBE14E /* pedometer.mm */,
+				173E9D2C1DDA909A00DBE14E /* PedoemeterViewController.h */,
 				1799AFD01DAB2E8600F8B5E3 /* Measurements.m */,
 				1799AFD21DAB2E9500F8B5E3 /* Measurements.h */,
 				1799AFD31DAB2FA200F8B5E3 /* Constants.h */,
@@ -125,6 +138,8 @@
 		C2492245BE9A2DE2F021688D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */,
+				173E9CE71DD5889400DBE14E /* CoreLocation.framework */,
 				17435C991DA2F7C300AD27A4 /* MapKit.framework */,
 				594B3471D8A2CBB6EBBC4147 /* libPods-Inertial Navigation.a */,
 			);
@@ -174,6 +189,7 @@
 				TargetAttributes = {
 					17435C4D1DA2D0CF00AD27A4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 8EQQ5TWMWC;
 					};
 				};
 			};
@@ -271,6 +287,7 @@
 				1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */,
 				17435C561DA2D0CF00AD27A4 /* AppDelegate.m in Sources */,
 				17435C531DA2D0CF00AD27A4 /* main.m in Sources */,
+				173E9D291DDA903000DBE14E /* pedometer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +406,7 @@
 			baseConfigurationReference = 7DFF8608DF9C0C459DA3F33C /* Pods-Inertial Navigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8EQQ5TWMWC;
 				INFOPLIST_FILE = "Inertial Navigation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.koz.Inertial-Navigation";
@@ -401,6 +419,7 @@
 			baseConfigurationReference = BC78DBCA0590B919B98CD0ED /* Pods-Inertial Navigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8EQQ5TWMWC;
 				INFOPLIST_FILE = "Inertial Navigation/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.koz.Inertial-Navigation";

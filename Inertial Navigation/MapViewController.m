@@ -8,78 +8,120 @@
 
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+#import <CoreMotion/CoreMotion.h>
+@import GoogleMaps;
 
-@interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
+@interface MapViewController () 
 
 @property (nonatomic, strong) GMSMapView *mapView;
-@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UIView *viewForMap;
+@property(strong,nonatomic) CMPedometer *pedometer;
+@property(strong,nonatomic) NSMutableArray *stepCountLog;
+@property (atomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, weak) IBOutlet UIButton *tracking;
+- (IBAction)getCurrentLocation:(id)sender;
 @end
 
 @implementation MapViewController
 
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-   // [self.mapView addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
+
+	self.pedometer = [[CMPedometer alloc] init];
+  CLLocation* myLoc = _mapView.myLocation;
+  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:myLoc.coordinate.latitude longitude:myLoc.coordinate.longitude zoom:15];
+  self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+  //self.mapView.myLocationEnabled = YES;
+  self.mapView.settings.myLocationButton = YES;
+
+  [self.viewForMap addSubview:self.mapView];
+  
+  
+//  GMSMarker *marker = [[GMSMarker alloc] init];
+//  marker.position = CLLocationCoordinate2DMake(43.0386, -87.9309);
+//  marker.title = @"Marquette University";
+//  marker.snippet = @"Wisconsin";
+//  marker.map = self.mapView;
+  
+  
+  self.mapView.delegate = self;
+  _locationManager.delegate = self;
+  [_locationManager requestWhenInUseAuthorization];
+  
+
+  
+  [_mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:NULL];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    _mapView.myLocationEnabled = YES;
+  });
+  
+  
+  
+  
+  
+ }
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+  if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) {
+    [_locationManager startUpdatingLocation];
+    _mapView.myLocationEnabled = YES;
+    _mapView.settings.myLocationButton = YES;
+  }
+  
 }
 
-
-//- (void)enableMyLocation
-//{
-//  CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-  
- // if (status == kCLAuthorizationStatusNotDetermined)
- //   [self requestLocationAuthorization];
- // else if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusRestricted)
- //   return; // we weren't allowed to show the user's location so don't enable
-//  else
- //   [self.mapView setMyLocationEnabled:YES];
-//}
-
-
-   // myLocation *location;
-   // GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: 51.5 longitude: -.127 zoom:6];
-    //GMSMapView *mapView = [GMSMapView mapWithFrame: CGRectZero camera:camera];
-   // mapView.myLocationEnabled = YES;
-    //self.view = mapView;
-    //mapView.myLocationEnabled = YES;
-   // location = mapView.myLocation;
-    
-    //[_mapView addObserver:self
-     //          forKeyPath:@"myLocation"
-     //             options:NSKeyValueObservingOptionNew
-      //            context:NULL];
-
-    
-    
-
-    
-    
-    -(void)loadView {
-      _mapView.myLocationEnabled = YES;
-      [self.locationManager startUpdatingLocation];
-    }
-
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray*)locations {
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations{
   CLLocation *newLocation = [locations lastObject];
-  
-  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: newLocation.coordinate.latitude longitude: newLocation.coordinate.longitude zoom:6];
-  [_mapView animateToCameraPosition:camera];
+  _mapView.camera = GMSCameraPosition(target: newLocation.coordinate.latitude)
 }
+
+
+-(IBAction)didTapStartTracking:(id)sender {
+  
+  [_tracking setTitle:@"Start" forState:UIControlStateNormal];
+  [_tracking setTitle:@"Stop" forState:UIControlStateSelected];
+  [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *pedometerData, NSError *error) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      
+      NSLog(@"data:%@, error:%@", pedometerData, error);
+    });
+  }];
+}
+
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+//  if (!firstLocationUpdate) {
+//    
+//  }
+  
+  
+//  if([keyPath isEqualToString:@"myLocation"]) {
+//    CLLocation *location = [object myLocation];
+//    //...
+//    NSLog(@"Location, %@,", location);
+//    
+//    CLLocationCoordinate2D target =
+//    CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
+//
+//  }
+//}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+  if([keyPath isEqualToString:@"myLocation"]) {
+    CLLocation *location = [object myLocation];
+    //...
+    NSLog(@"Location, %@,", location);
     
+    CLLocationCoordinate2D target =
+    CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
     
-    //GMSMarker *marker = [[GMSMarker alloc] init];
-   //marker.position = CLLocationCoordinate2DMake(51.5, -.127);
-    //marker.position = mapView.myLocation;
-    //marker.title = @"London";
-   // marker.snippet = @"England";
-   // marker.map = mapView;
-
-
-
-
-
+    [self.mapView animateToLocation:target];
+    [self.mapView animateToZoom:17];
+  }
+}
 
 
 
@@ -90,9 +132,35 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)getCurrentLocation:(id)sender {
+  _locationManager.delegate = self;
+  _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+  [_locationManager startUpdatingLocation];
+  CLLocation *location = [_mapView myLocation];
+  //...
+  NSLog(@"Location, %@,", location);
+  
+  CLLocationCoordinate2D target =
+  CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
+  
+  [self.mapView animateToLocation:target];
+  [self.mapView animateToZoom:17];
+  
+  
+}
 
 
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+  NSLog(@"didFailWithError: %@", error);
 
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+  [_mapView animateToLocation:newLocation.coordinate];
+  
+}
 
 
 

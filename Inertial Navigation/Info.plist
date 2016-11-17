@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>fdas</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -48,5 +50,7 @@
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>asdf</string>
 </dict>
 </plist>
