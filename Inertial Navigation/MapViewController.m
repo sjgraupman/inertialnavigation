@@ -76,7 +76,7 @@
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations{
   CLLocation *newLocation = [locations lastObject];
-  _mapView.camera = GMSCameraPosition(target: newLocation.coordinate.latitude)
+  //_mapView.camera = GMSCameraPosition(target: newLocation.coordinate.latitude)
 }
 
 
