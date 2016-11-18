@@ -8,4 +8,5 @@ pod 'Firebase/Database'
 pod 'Firebase/RemoteConfig'
 
 target ‘Inertial Navigation’ do
+pod ‘GoogleMaps’
 end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 @import Firebase;
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [FIRApp configure];
+  [GMSServices provideAPIKey:@"AIzaSyApZApJc9bIgYaFsaecSpLDWPUaQpMTbOA"];
   return YES;
 }
 

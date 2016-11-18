@@ -11,7 +11,7 @@
 @interface Constants : NSObject
 
 extern NSString *const NotificationKeysSignedIn;
-extern NSString *const SeguesSignInToFp;
-extern NSString *const SeguesFpToSignIn;
+extern NSString *const SegueToMap;
+
 
 @end
